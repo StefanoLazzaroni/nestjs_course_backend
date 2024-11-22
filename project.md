@@ -1,8 +1,8 @@
 ## Actors
 - Profiles
 
-## Auth
-- Post Register
+## Auth /auth
+- Post Register /auth/register
     INPUT:
         - username
         - password
