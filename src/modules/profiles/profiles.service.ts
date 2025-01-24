@@ -2,21 +2,21 @@ import { Injectable } from '@nestjs/common';
 import { RegisterRequestDto } from '../auth/dto/auth.dto';
 import { ProfilesRepository } from './profiles.repository';
 import { DatabaseError } from '@utils/error/errors';
-import { Profile } from './entities/profile.entity';
+import { ProfileEntity } from './entities/profile.entity';
 
 @Injectable()
 export class ProfilesService {
   constructor(private readonly profilesRepository: ProfilesRepository) {}
 
-  findOneByEmail(email: string) {
-    // Cerco su DB il profilo con questa email
-    // Se lo trovo ritorno il profilo
-    // Se non lo trovo ritorno Errore, non trovato
+  async findOneByEmail(email: string) {
+    const profile = await this.profilesRepository.findByEmail(email);
+
+    return profile;
   }
 
   async create(
     registerRequestDto: RegisterRequestDto,
-  ): Promise<Profile | DatabaseError> {
+  ): Promise<ProfileEntity | DatabaseError> {
     return await this.profilesRepository.create(registerRequestDto);
   }
 }
