@@ -1,0 +1,15 @@
+meta {
+  name: Create Chat
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/chats
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{TOKEN}}
+}

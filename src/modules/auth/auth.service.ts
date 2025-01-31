@@ -43,7 +43,9 @@ export class AuthService {
       return 'non ok';
     }
 
-    return this.jwtService.sign({ message: 'FUZNIONO' });
+    return {
+      access_token: this.jwtService.sign({ userId: profileResponse.id }),
+    };
     // Restituisco il token
   }
 }

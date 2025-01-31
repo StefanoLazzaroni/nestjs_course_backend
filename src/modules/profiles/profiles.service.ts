@@ -19,4 +19,8 @@ export class ProfilesService {
   ): Promise<ProfileEntity | DatabaseError> {
     return await this.profilesRepository.create(registerRequestDto);
   }
+
+  async findAll() {
+    return await this.profilesRepository.findAll();
+  }
 }

@@ -34,4 +34,12 @@ export class ProfilesRepository {
       return new DatabaseError('Impossibile trovare il profilo', { cause });
     }
   }
+
+  async findAll() {
+    try {
+      return await this.dbConnection.find();
+    } catch (cause) {
+      return new DatabaseError('Impossibile trovare il profilo', { cause });
+    }
+  }
 }
