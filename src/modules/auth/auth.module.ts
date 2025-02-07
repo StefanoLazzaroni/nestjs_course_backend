@@ -12,7 +12,7 @@ import { APP_GUARD } from '@nestjs/core';
       secret: 'laMiaIncredibilePasswordSegreta',
       signOptions: {
         algorithm: 'HS256',
-        expiresIn: 300,
+        expiresIn: 300000,
       },
     }),
     ProfilesModule,
