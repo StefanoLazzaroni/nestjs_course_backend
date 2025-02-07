@@ -1,0 +1,25 @@
+meta {
+  name: Create Message
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/chats/:chatId/messages
+  body: json
+  auth: none
+}
+
+params:path {
+  chatId: f064bc9e-4d1a-49c4-994f-573a64f5156e
+}
+
+headers {
+  Authorization: Bearer {{TOKEN}}
+}
+
+body:json {
+  {
+    "text": "Il mio primo bellissimo messaggio"
+  }
+}
